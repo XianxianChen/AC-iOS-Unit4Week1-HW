@@ -15,10 +15,13 @@
 		813365FB1FEB208400815EDB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813365FA1FEB208400815EDB /* Category.swift */; };
 		813365FD1FEB217E00815EDB /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813365FC1FEB217E00815EDB /* NetworkHelper.swift */; };
 		813365FF1FEB21AB00815EDB /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813365FE1FEB21AB00815EDB /* ImageAPIClient.swift */; };
-		813366011FEB2C0D00815EDB /* JsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813366001FEB2C0D00815EDB /* JsonData.swift */; };
 		813366031FEB2D6000815EDB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813366021FEB2D6000815EDB /* Book.swift */; };
 		813366051FEB315D00815EDB /* BookCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813366041FEB315D00815EDB /* BookCover.swift */; };
 		813366071FEB3F5600815EDB /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813366061FEB3F5600815EDB /* BookCollectionViewCell.swift */; };
+		81ABE1091FFC1AB900ABA0C9 /* BestCellerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ABE1081FFC1AB900ABA0C9 /* BestCellerDetailViewController.swift */; };
+		81ABE10B1FFC2CE900ABA0C9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ABE10A1FFC2CE900ABA0C9 /* SettingViewController.swift */; };
+		81ABE10F1FFC398B00ABA0C9 /* PersistantFileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */; };
+		81C190091FFC441800236BE7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C190081FFC441800236BE7 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +35,13 @@
 		813365FA1FEB208400815EDB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		813365FC1FEB217E00815EDB /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		813365FE1FEB21AB00815EDB /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
-		813366001FEB2C0D00815EDB /* JsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonData.swift; sourceTree = "<group>"; };
 		813366021FEB2D6000815EDB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		813366041FEB315D00815EDB /* BookCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCover.swift; sourceTree = "<group>"; };
 		813366061FEB3F5600815EDB /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		81ABE1081FFC1AB900ABA0C9 /* BestCellerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCellerDetailViewController.swift; sourceTree = "<group>"; };
+		81ABE10A1FFC2CE900ABA0C9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantFileClient.swift; sourceTree = "<group>"; };
+		81C190081FFC441800236BE7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +75,12 @@
 			isa = PBXGroup;
 			children = (
 				813365F91FEB17B400815EDB /* Supporting Files */,
-				54F137DE1FE302CD00EA22AA /* BestSellerViewController.swift */,
+				81ABE10C1FFC391400ABA0C9 /* View Controllers */,
 				54F137E01FE302CD00EA22AA /* Main.storyboard */,
 				813366061FEB3F5600815EDB /* BookCollectionViewCell.swift */,
-				813365FA1FEB208400815EDB /* Category.swift */,
-				813366021FEB2D6000815EDB /* Book.swift */,
-				813366041FEB315D00815EDB /* BookCover.swift */,
-				813366001FEB2C0D00815EDB /* JsonData.swift */,
+				81ABE10D1FFC392B00ABA0C9 /* Data Models */,
 				813365FC1FEB217E00815EDB /* NetworkHelper.swift */,
+				81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */,
 				813365FE1FEB21AB00815EDB /* ImageAPIClient.swift */,
 				54F137E31FE302CE00EA22AA /* Assets.xcassets */,
 				54F137E81FE302CE00EA22AA /* Info.plist */,
@@ -91,6 +95,27 @@
 				54F137E51FE302CE00EA22AA /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81ABE10C1FFC391400ABA0C9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54F137DE1FE302CD00EA22AA /* BestSellerViewController.swift */,
+				81ABE1081FFC1AB900ABA0C9 /* BestCellerDetailViewController.swift */,
+				81ABE10A1FFC2CE900ABA0C9 /* SettingViewController.swift */,
+				81C190081FFC441800236BE7 /* FavoritesViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		81ABE10D1FFC392B00ABA0C9 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				813365FA1FEB208400815EDB /* Category.swift */,
+				813366021FEB2D6000815EDB /* Book.swift */,
+				813366041FEB315D00815EDB /* BookCover.swift */,
+			);
+			path = "Data Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,13 +191,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				813366051FEB315D00815EDB /* BookCover.swift in Sources */,
+				81ABE10B1FFC2CE900ABA0C9 /* SettingViewController.swift in Sources */,
 				813365FD1FEB217E00815EDB /* NetworkHelper.swift in Sources */,
 				54F137DF1FE302CD00EA22AA /* BestSellerViewController.swift in Sources */,
 				813366071FEB3F5600815EDB /* BookCollectionViewCell.swift in Sources */,
 				813366031FEB2D6000815EDB /* Book.swift in Sources */,
 				54F137DD1FE302CD00EA22AA /* AppDelegate.swift in Sources */,
-				813366011FEB2C0D00815EDB /* JsonData.swift in Sources */,
+				81ABE1091FFC1AB900ABA0C9 /* BestCellerDetailViewController.swift in Sources */,
+				81ABE10F1FFC398B00ABA0C9 /* PersistantFileClient.swift in Sources */,
 				813365FF1FEB21AB00815EDB /* ImageAPIClient.swift in Sources */,
+				81C190091FFC441800236BE7 /* FavoritesViewController.swift in Sources */,
 				813365FB1FEB208400815EDB /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

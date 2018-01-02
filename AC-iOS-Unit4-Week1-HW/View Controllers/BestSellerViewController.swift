@@ -18,6 +18,11 @@ class BestSellerViewController: UIViewController {
     var category = [Category]() {
         didSet {
             self.pickerView.reloadAllComponents()
+            if let defaultRow = UserDefaults.standard.value(forKey: "default category") as? Int {
+                self.pickerView.selectRow(defaultRow, inComponent: 0, animated: true)
+                self.pickerView.reloadComponent(0)
+                self.selectedCategory = category[defaultRow].list_name
+            }
         }
     }
     var selectedCategory: String? {
@@ -62,6 +67,14 @@ class BestSellerViewController: UIViewController {
         BookCoverAPIClient.manager.getBookCover(from: isbn, completionHandler: completion, errorHandler: {print($0)})
        
       
+    }
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! BestCellerDetailViewController
+        let cell = sender as! BookCollectionViewCell
+        if let indexPath = collectionView.indexPath(for: cell) {
+            destination.book = books[indexPath.row]
+            destination.image = cell.imageView.image
+        }
     }
 
 

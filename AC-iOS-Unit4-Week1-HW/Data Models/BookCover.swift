@@ -14,6 +14,7 @@ struct BookCover: Codable {
     let volumeInfo: volumeInfoList
 }
 struct volumeInfoList: Codable {
+    let subtitle: String?
     let description: String
     let averageRating: Double?
     let ratingsCount: Int?
