@@ -22,6 +22,7 @@
 		81ABE10B1FFC2CE900ABA0C9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ABE10A1FFC2CE900ABA0C9 /* SettingViewController.swift */; };
 		81ABE10F1FFC398B00ABA0C9 /* PersistantFileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */; };
 		81C190091FFC441800236BE7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C190081FFC441800236BE7 /* FavoritesViewController.swift */; };
+		81C1900B1FFC466800236BE7 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1900A1FFC466800236BE7 /* FavoriteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		81ABE10A1FFC2CE900ABA0C9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantFileClient.swift; sourceTree = "<group>"; };
 		81C190081FFC441800236BE7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		81C1900A1FFC466800236BE7 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +78,9 @@
 			children = (
 				813365F91FEB17B400815EDB /* Supporting Files */,
 				81ABE10C1FFC391400ABA0C9 /* View Controllers */,
-				54F137E01FE302CD00EA22AA /* Main.storyboard */,
-				813366061FEB3F5600815EDB /* BookCollectionViewCell.swift */,
+				815831F31FFD79C20047804B /* Views */,
 				81ABE10D1FFC392B00ABA0C9 /* Data Models */,
-				813365FC1FEB217E00815EDB /* NetworkHelper.swift */,
-				81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */,
-				813365FE1FEB21AB00815EDB /* ImageAPIClient.swift */,
+				815831F21FFD79860047804B /* Network Models */,
 				54F137E31FE302CE00EA22AA /* Assets.xcassets */,
 				54F137E81FE302CE00EA22AA /* Info.plist */,
 			);
@@ -95,6 +94,26 @@
 				54F137E51FE302CE00EA22AA /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		815831F21FFD79860047804B /* Network Models */ = {
+			isa = PBXGroup;
+			children = (
+				813365FC1FEB217E00815EDB /* NetworkHelper.swift */,
+				81ABE10E1FFC398B00ABA0C9 /* PersistantFileClient.swift */,
+				813365FE1FEB21AB00815EDB /* ImageAPIClient.swift */,
+			);
+			path = "Network Models";
+			sourceTree = "<group>";
+		};
+		815831F31FFD79C20047804B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54F137E01FE302CD00EA22AA /* Main.storyboard */,
+				813366061FEB3F5600815EDB /* BookCollectionViewCell.swift */,
+				81C1900A1FFC466800236BE7 /* FavoriteCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		81ABE10C1FFC391400ABA0C9 /* View Controllers */ = {
@@ -190,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C1900B1FFC466800236BE7 /* FavoriteCollectionViewCell.swift in Sources */,
 				813366051FEB315D00815EDB /* BookCover.swift in Sources */,
 				81ABE10B1FFC2CE900ABA0C9 /* SettingViewController.swift in Sources */,
 				813365FD1FEB217E00815EDB /* NetworkHelper.swift in Sources */,

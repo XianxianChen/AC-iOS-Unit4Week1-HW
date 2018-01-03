@@ -17,10 +17,12 @@ class PersistantFileClient {
             saveFavorite()
         }
     }
+    
     func documentDirectory() -> URL {
-   let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return path[0]
     }
+    
     func dataFilePath(with path: String) -> URL {
      return PersistantFileClient.manager.documentDirectory().appendingPathComponent(path)
      
@@ -33,6 +35,9 @@ class PersistantFileClient {
         } catch {
             print("Encoding error: \(error)")
         }
+        print("\n==================================================")
+        print(documentDirectory())
+        print("===================================================\n")
     }
     func load() {
         let decoder = PropertyListDecoder()
@@ -44,7 +49,7 @@ class PersistantFileClient {
         }
     }
     func addToFavorite(of book: Book, and image: UIImage) {
-        let indexExist = self.favorites.index(where: {$0.isbns[0].isbn10 == book.isbns[0].isbn10})
+        let indexExist = self.favorites.index(where: {$0.book_details[0].title == book.book_details[0].title})
         if indexExist != nil {return}
         self.favorites.append(book)
         storeImageToDisk(of: book, and: image)
@@ -60,7 +65,7 @@ class PersistantFileClient {
         // writing and saving to documents folder
         
         // 1) save image from favorite photo
-        let path = dataFilePath(with: book.isbns[0].isbn10)
+        let path = dataFilePath(with: book.book_details[0].title)
         do {
             try data?.write(to: path)
         } catch {

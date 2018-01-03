@@ -13,7 +13,7 @@ class BestSellerViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var label: UILabel!
-    let cellSpacing: CGFloat = 20.0
+    let cellSpacing: CGFloat = 10.0
     let key = "29ca5ca3f7894a91826d750e77fcb227"
     var category = [Category]() {
         didSet {
@@ -22,7 +22,8 @@ class BestSellerViewController: UIViewController {
                 self.pickerView.selectRow(defaultRow, inComponent: 0, animated: true)
                 self.pickerView.reloadComponent(0)
                 self.selectedCategory = category[defaultRow].list_name
-            }
+          }
+            
         }
     }
     var selectedCategory: String? {
@@ -35,14 +36,11 @@ class BestSellerViewController: UIViewController {
     }
     var books = [Book]() {
       didSet {
-
             self.collectionView.reloadData()
-            
         }
 }
   
   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pickerView.delegate = self
@@ -52,6 +50,10 @@ class BestSellerViewController: UIViewController {
         self.label.text = "Best Sellers"
         loadCategory()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       loadCategory()
+    }
     
     func loadCategory() {
        CategoryAPIClient.manager.getCategory(from: key, completionHandler: {self.category = $0 }, errorHandler: {print($0)})
@@ -59,15 +61,7 @@ class BestSellerViewController: UIViewController {
     func loadBooks(from categoryStr: String) {
         BookAPIClient.manager.getBook(from: categoryStr, completionHandler: {self.books = $0}, errorHandler: {print($0)})
     }
-    func loadBookCover(from isbn: String) {
-        let completion: (BookCover) -> Void = {(onlineBookCover: BookCover) in
-             let bookCover = onlineBookCover
-           // self.bookCoverArr.append(bookCover)
-        }
-        BookCoverAPIClient.manager.getBookCover(from: isbn, completionHandler: completion, errorHandler: {print($0)})
-       
-      
-    }
+
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! BestCellerDetailViewController
         let cell = sender as! BookCollectionViewCell
@@ -102,10 +96,14 @@ extension BestSellerViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.configureCell(from: books[indexPath.row])
         
         cell.imageView.image = nil
+        guard !books[indexPath.row].isbns.isEmpty else {
+            cell.imageView.image = #imageLiteral(resourceName: "noImageFound")
+            return cell}
        let isbn = books[indexPath.row].isbns.first?.isbn10
+        
         let completion: (BookCover) -> Void = {(onlineBookCover: BookCover) in
-         
-            ImageAPIClient.manager.getImages(from: onlineBookCover.volumeInfo.imageLinks.smallThumbnail , completionHandler: {
+           
+            ImageAPIClient.manager.getImages(from: onlineBookCover.volumeInfo!.imageLinks.smallThumbnail , completionHandler: {
                 cell.imageView.image = $0
                 cell.layoutIfNeeded()
                 
@@ -127,10 +125,10 @@ extension BestSellerViewController: UICollectionViewDelegateFlowLayout {
         let numSpacing: CGFloat = numCell + 2
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
-        return CGSize(width: (screenWidth - (numSpacing * cellSpacing)) / numCell, height: screenHeight * 0.55)
+        return CGSize(width: (screenWidth - (numSpacing * cellSpacing)) / numCell, height: screenHeight * 0.45)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: cellSpacing , left: 0, bottom: cellSpacing, right: 0) // EdgeInset is top, left, bottom, right spacing of cell to the section edge.
+        return UIEdgeInsets(top: 0 , left: 0, bottom: 0, right: 0) // EdgeInset is top, left, bottom, right spacing of cell to the section edge.
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return cellSpacing

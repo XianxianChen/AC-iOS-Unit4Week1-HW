@@ -11,11 +11,11 @@ struct BookCoverInfo: Codable {
     let items: [BookCover]?
 }
 struct BookCover: Codable {
-    let volumeInfo: volumeInfoList
+    let volumeInfo: volumeInfoList?
 }
 struct volumeInfoList: Codable {
     let subtitle: String?
-    let description: String
+    let description: String?
     let averageRating: Double?
     let ratingsCount: Int?
     let imageLinks: ImageLinkList
